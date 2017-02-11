@@ -5,15 +5,15 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import bookStore.Basket;
 import bookStore.Book;
+import bookStore.BOOKNAME;
 
 public class BasketTest {
 
-	private Book book = new Book();
+	private Book book;
 	private Basket basket = new Basket();
 	private List<Book> bookList = new ArrayList<Book>();
 
@@ -29,6 +29,7 @@ public class BasketTest {
 	@Test
 	public void getBooksInBasket_ReturnsArrayLengthOfOne_WhenBookMethodIsCalledWithOneBook() {
 		// arrange
+		book = new Book(BOOKNAME.BOOK1);
 		// act
 		basket.addBook(book);
 		bookList = basket.getBooksInBasket();
@@ -39,8 +40,10 @@ public class BasketTest {
 	@Test
 	public void getBooksInBasket_ReturnsArrayLengthTwo_WhenTwoBooksAreAdded() {
 		// arrange
+		book = new Book(BOOKNAME.BOOK3);
+		Book book1 = new Book(BOOKNAME.BOOK1);
 		// act
-		basket.addBook(book);
+		basket.addBook(book1);
 		basket.addBook(book);
 		bookList = basket.getBooksInBasket();
 		// arrange

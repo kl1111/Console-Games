@@ -8,11 +8,12 @@ import org.junit.Test;
 
 import bookStore.Basket;
 import bookStore.Book;
+import bookStore.BOOKNAME;
 import bookStore.Checkout;
 
 public class CheckoutTest {
 
-	private Book book = new Book();
+	private Book book;
 	private Basket basket = new Basket();
 	private Checkout checkout = new Checkout();
 	private List<Book> bookList;
@@ -32,6 +33,7 @@ public class CheckoutTest {
 	@Test
 	public void calculatePrice_ReturnsPriceOfBooksInBasket_WhenBasketWithOneBookIsAdded() {
 		// arrange
+		book = new Book(BOOKNAME.BOOK5);
 		book.setPrice(DEFAULT_BOOK_PRICE);
 		basket.addBook(book);
 		bookList = basket.getBooksInBasket();
@@ -44,6 +46,7 @@ public class CheckoutTest {
 	@Test
 	public void calculatePrice_returnsPriceOfBooksInBasket_WhenTwoBooksPresentInBasket() {
 		// arrange
+		book = new Book(BOOKNAME.BOOK5);
 		book.setPrice(DEFAULT_BOOK_PRICE);
 		basket.addBook(book);
 		basket.addBook(book);
@@ -57,6 +60,8 @@ public class CheckoutTest {
 
 	@Test
 	public void calculatePrice_returnsDiscountedOnePercentDiscount_WhenThreeBooksPresentInBasket() {
+		//arrange
+		book = new Book(BOOKNAME.BOOK1);
 		book.setPrice(DEFAULT_BOOK_PRICE);
 		basket.addBook(book);
 		basket.addBook(book);
@@ -73,6 +78,8 @@ public class CheckoutTest {
 
 	@Test
 	public void calculatePrice_returnsDiscountedTwoPercentDiscount_WhenSevenBooksPresentInBasket() {
+		//arrange
+		book = new Book(BOOKNAME.BOOK1);
 		book.setPrice(DEFAULT_BOOK_PRICE);
 		basket.addBook(book);
 		basket.addBook(book);
@@ -93,6 +100,8 @@ public class CheckoutTest {
 
 	@Test
 	public void calculatePrice_returnsDiscountedThirteenPercentDiscount_WhenTenBooksPresentInBasket() {
+		//arrange
+		book = new Book(BOOKNAME.BOOK1);
 		book.setPrice(DEFAULT_BOOK_PRICE);
 		basket.addBook(book);
 		basket.addBook(book);
